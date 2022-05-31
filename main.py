@@ -8,7 +8,7 @@ app = Flask(__name__)
 # CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route("/plugin-vod-token")
-@cross_origin()
+@cross_origin(supports_credentials=True)
 def token():
     url = "https://h41.cnnd.vn/digital-vod/oauth/token"
     payload = {'username': "quangnn_bizflyvod-staging-khodemo-e6bd1",
@@ -20,6 +20,7 @@ def token():
     }
     data = requests.post(url, headers=headers, data=payload)
     response = make_response(data.json()["message"]["token"], 200)
+    response.headers.add("Access-Control-Allow-Origin", "*")
 
     return response
 
