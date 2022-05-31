@@ -20,9 +20,6 @@ def token():
     }
     data = requests.post(url, headers=headers, data=payload)
     response = make_response(data.json()["message"]["token"], 200)
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add('Access-Control-Allow-Headers', "*")
-    response.headers.add('Access-Control-Allow-Methods', "*")
 
     return response
 
