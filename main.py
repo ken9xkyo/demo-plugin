@@ -1,12 +1,14 @@
 from flask import Flask, render_template, make_response
 import requests
 from flask_cors import CORS
+from flask_cors import cross_origin
 
 app = Flask(__name__)
 # ok
-CORS(app, resources={r"*": {"origins": "*"}})
+# CORS(app, resources={r"*": {"origins": "*"}})
 
 @app.route("/plugin-vod-token")
+@cross_origin()
 def token():
     url = "https://h41.cnnd.vn/digital-vod/oauth/token"
     payload = {'username': "quangnn_bizflyvod-staging-khodemo-e6bd1",
