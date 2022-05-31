@@ -1,2 +1,4 @@
-import app
+from main import app
+
+
 app.run()
