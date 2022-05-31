@@ -1,0 +1,58 @@
+<html>
+   <button id="media" class="test-button">Mở Plugin VOD</button>
+   <div id="preview"></div>
+</html>
+
+<!-- Load thư viện JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Load thư viện Plugin VOD -->
+<script src="https://ims.mediacdn.vn/micro/media/vod/beta/plugins/dist/ims-plugin-media.js"></script>
+
+<script>
+   // Hàm lấy plugin vod token
+   function getTokenFunction(callback) {
+           var xhr = new XMLHttpRequest();
+           xhr.withCredentials = true;
+           xhr.addEventListener("readystatechange", function () {
+               if (xhr.readyState === XMLHttpRequest.DONE) {
+                   var status = xhr.status;
+
+                   if (status === 200)
+                       callback(null, this.responseText)
+                   else
+                       callback(new Error('Error2 get token'))
+               } else if (xhr.readyState === XMLHttpRequest.ERROR) {
+                   callback(new Error('Error2 get token'))
+               }
+           });
+           xhr.open("GET", "https://www.huutuananh.com/custom/plugin-vod-token", true); // Cần cài đặt API GET /plugin-vod-token ở CMS Server
+           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+           xhr.send();
+       }
+
+   // Event click vào button "Mở Plugin VOD"
+   $('#media').off('click').on('click', function () {
+       // Khởi tạo Plugin VOD
+       IMSWidgetMedia.init({
+           locale: 'vi',
+           plugins: {
+               name: 'media',
+               options: {
+                   getTokenFunction: getTokenFunction
+               },
+               methods: {
+                   name: 'mediaManager',
+                   options: {
+                       callback(arrMedia) {
+                           console.log('Callback =>', arrMedia);
+
+                           arrMedia.forEach(media => {
+                           $('#preview').append('<div style="width:500px;height:400px;">' + media.embedCode + '</div>');
+                           });
+                       },
+                   },
+               },
+           },
+       });
+   });
+</script>
