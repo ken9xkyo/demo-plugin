@@ -1,7 +1,9 @@
 from flask import Flask
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/plugin-vod-token")
 def token():
@@ -15,7 +17,6 @@ def token():
     }
     data = requests.post(url, headers=headers, data=payload)
     response = data.json()["message"]["token"]
-    response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
 
