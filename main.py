@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 import requests
 from flask_cors import CORS
 
@@ -17,7 +17,10 @@ def token():
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     data = requests.post(url, headers=headers, data=payload)
-    response = data.json()["message"]["token"]
+    response = make_response(data.json()["message"]["token"], 200)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add('Access-Control-Allow-Headers', "*")
+    response.headers.add('Access-Control-Allow-Methods', "*")
 
     return response
 
