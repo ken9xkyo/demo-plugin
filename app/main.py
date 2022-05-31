@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 from flask_cors import CORS
 
@@ -22,6 +22,6 @@ def token():
 
 
 @app.route("/")
-def home_view():
-	return "<h1>Welcome to Geeks for Geeks</h1>"
+def home():
+    return render_template("cms.html")
 
