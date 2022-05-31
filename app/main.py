@@ -13,10 +13,11 @@ def token():
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
-    response = requests.post(url, headers=headers, data=payload)
+    data = requests.post(url, headers=headers, data=payload)
+    response = data.json()["message"]["token"]
+    response.headers.add('Access-Control-Allow-Origin', '*')
 
-    return response.json()["message"]["token"]
-
+    return response
 
 
 @app.route("/")
