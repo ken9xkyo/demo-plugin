@@ -11,10 +11,10 @@ app = Flask(__name__)
 @cross_origin(supports_credentials=True,methods="get")
 def token():
     url = "https://h41.cnnd.vn/digital-vod/oauth/token"
-    payload = {'username': "quangnn_bizflyvod-staging-khodemo-e6bd1",
+    payload = {'username': "user1_bizflyvod-staging-vulmdemo-3fbb3",
                'grant_type': 'authorization_code',
-               'code': 'g3879u4ypf',
-               'scope': '442963536461799424'}
+               'code': 'pd144rrzn3',
+               'scope': '456279747597172736'}
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded'
     }
