@@ -11,7 +11,7 @@ app = Flask(__name__)
 @cross_origin(supports_credentials=True,methods="get")
 def token():
     url = "https://vodbizflyapi.cnnd.vn/oauth/token"
-    payload = {'username': "quangnn_bizflyvod-quangnnvod-141e7",
+    payload = {'username': "quangnnvod_bizflyvod-quangnnvod-141e7",
                'grant_type': 'authorization_code',
                'code': '4dmilvwp3u',
                'scope': '497318801742135296'}

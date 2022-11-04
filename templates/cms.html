@@ -22,7 +22,7 @@
                    else
                        callback(new Error('Error2 get token'))
                } else if (xhr.readyState === XMLHttpRequest.ERROR) {
-                   callback(new Error('Error2 get token'))
+                   callback(new Error('Error3 get token'))
                }
            });
            xhr.open("GET", "https://quangnneflask-app.herokuapp.com/plugin-vod-token", true); // Cần cài đặt API GET /plugin-vod-token ở CMS Server
