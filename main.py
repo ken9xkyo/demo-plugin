@@ -26,5 +26,5 @@ def token():
 
 @app.route("/")
 def home():
-    return render_template("cms.html")
+    return render_template("traitim.html")
 
