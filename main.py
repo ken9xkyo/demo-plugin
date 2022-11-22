@@ -13,7 +13,7 @@ def token():
     account_suffix = "" # Nhập Account Suffix
     code = "" # Nhập code
     scope = "" # Nhập scope
-    url = # Nhập url
+    url = "" # Nhập url
 
     # Tạo payload
     payload = {'username': f"{username}{account_suffix}",
