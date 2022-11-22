@@ -25,7 +25,8 @@
                    callback(new Error('Error3 get token'))
                }
            });
-           xhr.open("GET", "http://127.0.0.1:5000/plugin-vod-token", true); // Cần cài đặt API GET /plugin-vod-token ở CMS Server
+           // Cần cài đặt API GET /plugin-vod-token ở CMS Server
+           xhr.open("GET", "http://127.0.0.1:5000/plugin-vod-token", true); 
            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
            xhr.send();
        }
