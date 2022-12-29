@@ -9,11 +9,11 @@ app = Flask(__name__)
 @cross_origin(supports_credentials=True,methods="get")
 def token():
     # Khởi tạo tham số
-    username = "" # Nhập username
-    account_suffix = "" # Nhập Account Suffix
-    code = "" # Nhập code
-    scope = "" # Nhập scope
-    url = "" # Nhập url
+    username = "quangnn" # Nhập username
+    account_suffix = "_bizflyvod-quangnnvod1-9bf38" # Nhập Account Suffix
+    code = "mi64iwp34u" # Nhập code
+    scope = "497326347232247808" # Nhập scope
+    url = "https://vodbizflyapi.cnnd.vn/oauth/token" # Nhập url
 
     # Tạo payload
     payload = {'username': f"{username}{account_suffix}",
